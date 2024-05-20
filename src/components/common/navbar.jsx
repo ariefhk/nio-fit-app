@@ -1,14 +1,5 @@
 import { Button } from "@/components/ui/button"
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
-import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -16,11 +7,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import useScroll from "@/hooks/useScroll"
 import useUrl from "@/hooks/useUrl"
 import { cn } from "@/lib/tailwind-utils"
-import { CircleUser, Menu, Package2, Search } from "lucide-react"
+import { Menu, Package2 } from "lucide-react"
 import { FaUser } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import SectionWrapper from "./section-wrapper"
@@ -71,15 +62,13 @@ const detectActiveLink = (pathname, link) => {
 }
 export default function Navbar() {
   const { pathname } = useUrl()
-
-  console.log("pathname: ", pathname)
-
-  const test = detectActiveLink(pathname, "/artikel")
-
-  console.log("hehe: ", test)
+  const { isScrolled } = useScroll()
 
   return (
-    <div className="w-full fixed z-20 top-0 h-16 border-b ">
+    <div
+      className={cn("w-full fixed z-20 top-0 h-16  ", {
+        "border-b": isScrolled,
+      })}>
       <SectionWrapper className=" flex   items-center justify-between md:justify-normal  h-full  gap-4  bg-background ">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-x-[50px]">
           <Link

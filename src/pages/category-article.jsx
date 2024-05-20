@@ -21,7 +21,7 @@ export default function CategoryArticle() {
 
   return (
     <AppLayout>
-      <SectionWrapper className="max-w-[1200px] space-y-12">
+      <SectionWrapper className="max-w-[1200px] space-y-12 pb-[64px]">
         <div className=" pt-[70px] flex items-center">
           <div className="w-max space-y-12">
             <h1 className="text-[60px] leading-[70px] font-semibold">
