@@ -53,10 +53,30 @@ const navLinks = [
   },
 ]
 
+const detectActiveLink = (pathname, link) => {
+  if (link === "/" && pathname === "/") {
+    return true
+  }
+
+  // Ensure the link and pathname are normalized
+  const normalizedLink = link.replace(/\/$/, "") // Remove trailing slash
+  const normalizedPathname = pathname.replace(/\/$/, "") // Remove trailing slash
+
+  const linkWithoutSlash = normalizedLink.replace("/", "")
+  const pathSegments = normalizedPathname
+    .split("/")
+    .filter((segment) => segment)
+
+  return pathSegments.includes(linkWithoutSlash)
+}
 export default function Navbar() {
   const { pathname } = useUrl()
 
   console.log("pathname: ", pathname)
+
+  const test = detectActiveLink(pathname, "/artikel")
+
+  console.log("hehe: ", test)
 
   return (
     <div className="w-full fixed z-20 top-0 h-16 border-b ">
@@ -81,8 +101,10 @@ export default function Navbar() {
                   className={cn(
                     "text-muted-foreground text-text16_24 px-[16px] py-[4px] transition-colors hover:text-foreground",
                     {
-                      "bg-color-1 text-white rounded-full":
-                        pathname === navlink.href,
+                      "bg-color-1 text-white rounded-full": detectActiveLink(
+                        pathname,
+                        navlink.href,
+                      ),
                     },
                   )}>
                   {navlink.name}

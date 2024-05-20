@@ -1,10 +1,10 @@
 import NotFound from "@/components/not-found/not-found"
-import GuestLayout from "@/layouts/guest-layout"
+import AppLayout from "@/layouts/app-layout"
 
 export default function NotFoundGuestPage() {
   return (
-    <GuestLayout>
+    <AppLayout>
       <NotFound />
-    </GuestLayout>
+    </AppLayout>
   )
 }
