@@ -7,7 +7,7 @@ export default function AppLayout({ children, className }) {
   return (
     <main className={cn(" ", className)}>
       <Navbar />
-      <div className="pt-[64px] min-h-screen">{children}</div>
+      <div className="py-[64px] min-h-screen">{children}</div>
       <Footer />
     </main>
   )

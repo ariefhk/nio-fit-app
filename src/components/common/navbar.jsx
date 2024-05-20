@@ -59,7 +59,7 @@ export default function Navbar() {
   console.log("pathname: ", pathname)
 
   return (
-    <div className="w-full fixed  top-0 h-16 border-b ">
+    <div className="w-full fixed z-20 top-0 h-16 border-b ">
       <SectionWrapper className=" flex   items-center justify-between md:justify-normal  h-full  gap-4  bg-background ">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-x-[50px]">
           <Link

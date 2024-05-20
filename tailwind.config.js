@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       fontSize: {
         text10_14: ["10px", "14px"],
+        text12_20: ["12px", "20px"],
         text14_20: ["14px", "20px"],
         text16_20: ["16px", "20px"],
         text16_24: ["16px", "24px"],

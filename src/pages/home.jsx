@@ -1,6 +1,54 @@
 import SectionWrapper from "@/components/common/section-wrapper"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { Input } from "@/components/ui/input"
 import AppLayout from "@/layouts/app-layout"
+import { Link } from "react-router-dom"
+
+const cardDatas = [
+  {
+    id: 1,
+    images: "/images/article-parent.png",
+    title: "Mengakhiri Kebiasaan Merokok",
+    desc: "Merokok adalah salah satu kebiasaan paling berbahaya yang dapat merusak kesehatan.",
+  },
+  {
+    id: 2,
+    images: "/images/article-kecanduan.png",
+    title: "Solusi untuk Generasi Penerus yang Sehat",
+    desc: "Merokok adalah salah satu kebiasaan paling berbahaya yang dapat merusak kesehatan.",
+  },
+  {
+    id: 3,
+    images: "/images/article-rokok.png",
+    title: "Panduan Holistik untuk mengatasi ketergantungan",
+    desc: "Merokok adalah salah satu kebiasaan paling berbahaya yang dapat merusak kesehatan.",
+  },
+  {
+    id: 4,
+    images: "/images/article-parent.png",
+    title: "Mengakhiri Kebiasaan Merokok",
+    desc: "Merokok adalah salah satu kebiasaan paling berbahaya yang dapat merusak kesehatan.",
+  },
+  {
+    id: 5,
+    images: "/images/article-kecanduan.png",
+    title: "Solusi untuk Generasi Penerus yang Sehat",
+    desc: "Merokok adalah salah satu kebiasaan paling berbahaya yang dapat merusak kesehatan.",
+  },
+  {
+    id: 6,
+    images: "/images/article-rokok.png",
+    title: "Panduan Holistik untuk mengatasi ketergantungan",
+    desc: "Merokok adalah salah satu kebiasaan paling berbahaya yang dapat merusak kesehatan.",
+  },
+]
 
 export default function HomePage() {
   return (
@@ -15,13 +63,103 @@ export default function HomePage() {
             <Input placeholder="Cari Artikel" />
           </div>
         </div>
-        <div>
+        <div className="  space-y-10">
           <div className="flex justify-between items-center ">
             <h1 className="text-[24px] font-bold leading-[44px]">Kecanduan</h1>
             <p className="text-color-1 text-[20px] font-semibold leading-[28px]">
               Lihat Semua
             </p>
           </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full overflow-hidden ">
+            <CarouselContent>
+              {cardDatas.map((cardData, index) => (
+                <CarouselItem
+                  key={index + 1}
+                  className="md:basis-1/2 lg:basis-1/4 hover:drop-shadow-md cursor-pointer py-3">
+                  <Card className="rounded-[20px]  w-full overflow-hidden ">
+                    <CardContent className="w-full p-0   h-[360px] ">
+                      <img
+                        alt=""
+                        src={cardData.images}
+                        className="h-[48%] w-full object-cover"
+                      />
+                      <div className="p-5 space-y-4">
+                        <h1 className="text-text14_20 font-bold">
+                          {cardData.title}
+                        </h1>
+                        <p className="text-text12_20 text-color-4">
+                          {cardData.desc}
+                        </p>
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Link
+                        to={"/"}
+                        className="text-text14_20 text-color-1 hover:underline hover:underline-offset-4">
+                        Baca Selengkapnya
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+        <div className="  space-y-10">
+          <div className="flex justify-between items-center ">
+            <h1 className="text-[24px] font-bold leading-[44px]">Emosional</h1>
+            <p className="text-color-1 text-[20px] font-semibold leading-[28px]">
+              Lihat Semua
+            </p>
+          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full overflow-hidden ">
+            <CarouselContent>
+              {cardDatas.map((cardData, index) => (
+                <CarouselItem
+                  key={index + 1}
+                  className="md:basis-1/2 lg:basis-1/4 hover:drop-shadow-md cursor-pointer py-3">
+                  <Card className="rounded-[20px]  w-full overflow-hidden ">
+                    <CardContent className="w-full p-0   h-[360px] ">
+                      <img
+                        alt=""
+                        src={cardData.images}
+                        className="h-[48%] w-full object-cover"
+                      />
+                      <div className="p-5 space-y-4">
+                        <h1 className="text-text14_20 font-bold">
+                          {cardData.title}
+                        </h1>
+                        <p className="text-text12_20 text-color-4">
+                          {cardData.desc}
+                        </p>
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Link
+                        to={"/"}
+                        className="text-text14_20 text-color-1 hover:underline hover:underline-offset-4">
+                        Baca Selengkapnya
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </SectionWrapper>
     </AppLayout>
