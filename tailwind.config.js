@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -17,7 +17,25 @@ module.exports = {
       },
     },
     extend: {
+      fontSize: {
+        text10_14: ["10px", "14px"],
+        text14_20: ["14px", "20px"],
+        text16_20: ["16px", "20px"],
+        text16_24: ["16px", "24px"],
+        text18_20: ["18px", "20px"],
+        text18_28: ["18px", "28px"],
+        text20_30: ["20px", "30px"],
+        text24_44: ["24px", "44px"],
+        text30_40: ["30px", "40px"],
+        text36_40: ["36px", "40px"],
+        text40_60: ["40px", "60px"],
+        text50_60: ["50px", "60px"],
+      },
       colors: {
+        "color-1": "#508CAE",
+        "color-2": "rgba(82, 135, 135, 0.32)",
+        "color-3": "#43B02A",
+        "color-4": "#696969",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
